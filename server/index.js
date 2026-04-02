@@ -31,13 +31,17 @@ app.use('/api/customer', require('./api/customer.js'));
 // --- 4. SERVE REACT APP (FRONTEND) ---
 // Phục vụ frontend admin
 app.use('/admin', express.static(path.resolve(__dirname, '../client-admin/build')));
-app.get('/admin/*', (req, res) => {
+
+// [SỬA LỖI Ở ĐÂY]: Đổi '/admin/*' thành '/admin/(.*)'
+app.get('/admin/(.*)', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client-admin/build', 'index.html'));
 });
 
 // Phục vụ frontend customer
 app.use('/', express.static(path.resolve(__dirname, '../client-customer/build')));
-app.get('*', (req, res) => {
+
+// [SỬA LỖI Ở ĐÂY]: Đổi '*' thành '(.*)'
+app.get('(.*)', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client-customer/build', 'index.html'));
 });
 
