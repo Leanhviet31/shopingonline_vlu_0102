@@ -1,0 +1,23 @@
+{
+  "name": "projectname",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && nodemon index.js",
+    "admin": "cd client-admin && npm start",
+    "customer": "cd client-customer && npm start",
+
+    "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run customer\"",
+    
+    "dev:admin": "concurrently \"npm run server\" \"npm run admin\"",
+    "dev:cus": "concurrently \"npm run server\" \"npm run customer\""
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
