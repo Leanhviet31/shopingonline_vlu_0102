@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
-// --- 3. APIS / ROUTES ---
+// --- 3. APIS / ROUTES --- 
 
 // Route test đơn giản
 app.get('/hello', (req, res) => {
